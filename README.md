@@ -1,11 +1,11 @@
 # HTML++
 
-Write HTML using C++ templates. The HTML document is represented as a single, deeply-
-nested type which is type-checked by the compiler using certain rules about how
-HTML elements are allowed to be nested (e.g. nothing can be nested inside a `<br>` tag).
+Write HTML using C++ templates. The HTML document is represented as a single,
+deeply-nested type which is type-checked by the compiler using certain rules about how
+HTML elements are allowed to be nested (e.g. nothing can be a child of a `<br>` tag).
 
-If compilation succeeds, you will have a program that prints an HTML document
-to the standard output when run, with readable indentation.
+If compilation succeeds, you will have a program that prints a properly-indented
+HTML document to the standard output when run.
 
 ## Example
 
@@ -19,10 +19,9 @@ Say you want to write the following HTML page:
   <body>
     <h1>The horror!</h1>
     <p>
-      Someone has probably done this before, but I can see why they haven't
-      told anyone about it.
+      Someone has probably done this before, but I can see why it didn't catch on.
     </p>
-    <a href="https://github.com/csb6/html++">For science</a>
+    <a href="https://github.com/csb6/html-plus-plus">For science</a>
   </body>
 </html>
 ```
@@ -55,7 +54,7 @@ int main()
 
 ## Installation
 
-This library require C++20. It works with GCC 9.2.0 with `-std=c++2a` enabled.
+This library requires C++20. It works with GCC 9.2.0 with `-std=c++2a` enabled.
 It doesn't work with Apple Clang 11.0, but it might work on other compilers. If
 C++20 is fully implemented on a given compiler, it should be able to compile.
 
@@ -108,8 +107,9 @@ however, the structure of the document is defined at compile-time.
 
 **Should I use it**
 
-No, but I think the type-checking aspect could be useful. I haven't added all HTML tags,
+No. However, I think the type-checking aspect could be useful. I haven't added all HTML tags,
 but in theory this library could be extended in such a way that you could write HTML
 with somewhat strong typing, which might be useful for ensuring HTML standards conformance.
 
-Hope this project is interesting (and concerning) to you!
+Hope this project is interesting (and concerning) to you! Check out the example files in
+this repository for more information.
