@@ -62,7 +62,7 @@ Simply `#include html++.h`. It is the only file you need.
 
 ## Questions
 
-**Why**
+### Why
 
 I was writing some HTML, and I realized that the structure and syntax of
 HTML tags was quite a bit like the structure/syntax of C++ templates. Both
@@ -80,7 +80,7 @@ imitating the appearance of HTML tags even more closely.
 I thought I'd see how horrible it would be, and, as expected, it is pretty
 ridiculous.
 
-**How**
+### How
 
 The entire library is basically a fancy way of concatenating strings.
 Each tag is defined as its own template struct
@@ -98,16 +98,16 @@ named `body_element_tag`), ensures that the tags make semantic sense as children
 of a given node. In this way, HTML can be given a degree of type-checking.
 
 The output text is assembled by pre-order traversing the tree of types, calling each type's
-constructor recursively. Each element adds its opening tag (e.g. "<html>\n") to a string
+constructor recursively. Each element adds its opening tag (e.g. `<html>`) to a string
 that is then passed by reference to each child element recursively. Once all children have
-added their opening tags, each node adds its closing tag (e.g. "</html>") and returns from its
+added their opening tags, each node adds its closing tag (e.g. `</html>`) and returns from its
 constructor. The string is stored in a member of the top-level node (`html`) and can be
 printed and/or used like a normal string at runtime. The string is assembled at runtime;
 however, the structure of the document is defined at compile-time.
 
-**Should I use it**
+### Should I use it
 
-No. However, I think the type-checking aspect could be useful. I haven't added all HTML tags,
+Probably not. However, I think the type-checking aspect could be useful. I haven't added all HTML tags,
 but in theory this library could be extended in such a way that you could write HTML
 with somewhat strong typing, which might be useful for ensuring HTML standards conformance.
 
