@@ -111,5 +111,4 @@ No. However, I think the type-checking aspect could be useful. I haven't added a
 but in theory this library could be extended in such a way that you could write HTML
 with somewhat strong typing, which might be useful for ensuring HTML standards conformance.
 
-Hope this project is interesting (and concerning) to you! Check out the example files in
-this repository for more information.
+Hope this project is interesting (and concerning) to you!
