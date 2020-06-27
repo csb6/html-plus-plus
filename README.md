@@ -42,7 +42,7 @@ int main()
     body<
       h1<"The horror!">,
       p<"Someone has probably done this before, but I can see why it didn't catch on.">,
-      a<"href=https://github.com/csb6/html++", "For science">
+      a<"href=https://github.com/csb6/html-plus-plus", "For science">
     >
   > page;
 
@@ -72,7 +72,7 @@ enable you to nest identifiers into a tree structure.
 Since variadic templates were added to C++, a template can hold any
 number of other types in a parameter pack, enabling parent nodes to hold any
 number of child nodes. This is necessary in order for HTML elements to be
-properly represented by a C++ type.
+properly represented by C++ types.
 
 Since C++20, it is now possible to use string literals as non-type template
 parameters (e.g. `h1<"This is a title">`), making C++ templates capable of
@@ -96,20 +96,20 @@ a tag (e.g. `<img>` is a self-closing tag, so it would not make sense for it to 
 template parameter pack of child nodes). Using inheritance and
 `static_assert`, along with "phantom" types (e.g. `img` inherits from an empty struct
 named `body_element_tag`), ensures that the tags make semantic sense as children
-of a given node. 
+of a given node. In this way, HTML can be given a degree of type-checking.
 
-The output text is assembled by pre-order traversing the tree of types, calling each
+The output text is assembled by pre-order traversing the tree of types, calling each type's
 constructor recursively. Each element adds its opening tag (e.g. "<html>\n") to a string
 that is then passed by reference to each child element recursively. Once all children have
-added their tags, each node adds its closing tag (e.g. "</html>") and returns from its
+added their opening tags, each node adds its closing tag (e.g. "</html>") and returns from its
 constructor. The string is stored in a member of the top-level node (`html`) and can be
 printed and/or used like a normal string at runtime. The string is assembled at runtime;
 however, the structure of the document is defined at compile-time.
 
 **Should I use it**
 
-No.
-
-
+No, but I think the type-checking aspect could be useful. I haven't added all HTML tags,
+but in theory this library could be extended in such a way that you could write HTML
+with somewhat strong typing, which might be useful for ensuring HTML standards conformance.
 
 Hope this project is interesting (and concerning) to you!
